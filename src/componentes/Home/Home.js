@@ -16,13 +16,13 @@ function Home(props) {
   const indexOfLastCountry = currentPage * countriesPerPage;
   const indexOfFirstCountry = indexOfLastCountry - countriesPerPage;
   //en este array se guardan todos los paises que estan entre las posiciones indexOfLast e indexOfFirst
-  const currentCountry = props.countries && props.countries.slice(
-    indexOfFirstCountry,
-    indexOfLastCountry
-  );
+  const currentCountry =
+    props.countries &&
+    props.countries.slice(indexOfFirstCountry, indexOfLastCountry);
 
   useEffect(() => {
-    if(!props.filtered) props.getCountries();
+    if (!props.filtered) props.getCountries();
+    console.log(props.countries);
   }, []);
 
   //cambio de pagina
@@ -70,7 +70,7 @@ function Home(props) {
 function mapStateToProps(state) {
   return {
     countries: state.countries,
-    filtered: state.filtered
+    filtered: state.filtered,
   };
 }
 

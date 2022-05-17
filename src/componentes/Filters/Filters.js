@@ -40,13 +40,13 @@ function Filters(props) {
   }
 
   //area
-//   function handleOrderingArea(e) {
-//     if (e.target.value === "All") {
-//       props.getCountries();
-//     } else {
-//       props.getOrderArea(e.target.value, props.countries);
-//     }
-// }
+  //   function handleOrderingArea(e) {
+  //     if (e.target.value === "All") {
+  //       props.getCountries();
+  //     } else {
+  //       props.getOrderArea(e.target.value, props.countries);
+  //     }
+  // }
 
   //function para hacer filtro por actividades. Le paso la action por props
   function handleActivity(e) {
@@ -60,9 +60,11 @@ function Filters(props) {
   //creo un estado local para filtrar actividades
   const [actividades, setActividades] = useState("");
   useEffect(() => {
-    axios.get("http://localhost:3001/countries/activities").then((response) => {
-      setActividades(response.data);
-    });
+    axios
+      .get("https://gnghmntjhym.herokuapp.com/countries/activities")
+      .then((response) => {
+        setActividades(response.data);
+      });
   }, []);
 
   return (
@@ -126,9 +128,6 @@ function Filters(props) {
         <option value="ASC">Ascendente</option>
         <option value="DES">Descendente</option>
       </select> */}
-
-      
-
     </div>
   );
 }

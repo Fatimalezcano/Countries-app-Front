@@ -3,9 +3,11 @@ import axios from "axios";
 //action para llamar a todos los paises
 export function getCountries() {
   return function (dispatch) {
-    return axios.get("http://localhost:3001/countries").then((response) => {
-      dispatch({ type: "GET_COUNTRIES", payload: response.data });
-    });
+    return axios
+      .get("https://gnghmntjhym.herokuapp.com/countries")
+      .then((response) => {
+        dispatch({ type: "GET_COUNTRIES", payload: response.data });
+      });
   };
 }
 
@@ -13,7 +15,7 @@ export function getCountries() {
 export function getCountry(name) {
   return function (dispatch) {
     return axios
-      .get(`http://localhost:3001/countries?name=${name}`)
+      .get(`https://gnghmntjhym.herokuapp.com/countries?name=${name}`)
       .then((response) => {
         dispatch({ type: "GET_COUNTRY", payload: response.data });
       });
@@ -24,7 +26,9 @@ export function getCountry(name) {
 export function getContinent(continente) {
   return function (dispatch) {
     return axios
-      .get(`http://localhost:3001/countries?continente=${continente}`)
+      .get(
+        `https://gnghmntjhym.herokuapp.com/countries?continente=${continente}`
+      )
       .then((response) => {
         dispatch({ type: "GET_CONTINENT", payload: response.data });
       });
@@ -35,7 +39,7 @@ export function getContinent(continente) {
 export function getActivities(activity) {
   return function (dispatch) {
     return axios
-      .get(`http://localhost:3001/countries?activity=${activity}`)
+      .get(`https://gnghmntjhym.herokuapp.com/countries?activity=${activity}`)
       .then((response) => {
         dispatch({ type: "GET_ACTIVITY", payload: response.data });
       });
@@ -102,7 +106,7 @@ export function getOrderNum(modo, countries) {
   };
 }
 
- // area
+// area
 //  export function getOrderArea(modo, countries) {
 //   const arrayPaises = [...countries];
 //   arrayPaises.sort((a, b) => {
@@ -135,7 +139,7 @@ export function getOrderNum(modo, countries) {
 export function getDetail(idPais) {
   return function (dispatch) {
     return axios
-      .get(`http://localhost:3001/countries/${idPais}`)
+      .get(`https://gnghmntjhym.herokuapp.com/countries/${idPais}`)
       .then((response) => {
         dispatch({ type: "GET_DETAIL", payload: response.data });
       });

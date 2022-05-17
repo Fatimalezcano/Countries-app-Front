@@ -34,12 +34,18 @@ function CreateActivity(props) {
 
   async function onSubmit(e) {
     e.preventDefault();
-    if(inputs.nombre && inputs.dificultad && inputs.duracion && inputs.temporada && inputs.countries.length > 0) {
-      await axios.post("http://localhost:3001/activity", inputs);
-    window.alert("Actividad creada con exito!");
-    window.location.reload();
-    } else{
-      window.alert('Alguno de los campos esta vacio')
+    if (
+      inputs.nombre &&
+      inputs.dificultad &&
+      inputs.duracion &&
+      inputs.temporada &&
+      inputs.countries.length > 0
+    ) {
+      await axios.post("https://gnghmntjhym.herokuapp.com/activity", inputs);
+      window.alert("Actividad creada con exito!");
+      window.location.reload();
+    } else {
+      window.alert("Alguno de los campos esta vacio");
     }
   }
 
